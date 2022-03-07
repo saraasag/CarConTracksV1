@@ -3,32 +3,32 @@ const { ethers, waffle } = require("hardhat");
 const { deployContract, MockProvider } = waffle;
 const provider = waffle.provider;
 
-describe("Flight Booking", function () {
-  let FlightBooking;
-  let hardhatFlightBooking;
+describe("Car Sale", function () {
+  let CarSale;
+  let hardhatCarSale;
   let owner;
   let buyer;
   let seller;
 
   beforeEach(async function () {
-    FlightBooking = await ethers.getContractFactory("FlightBooking");
+    CarSale = await ethers.getContractFactory("CarSale");
     [owner, buyer, seller] = await ethers.getSigners();
-    hardhatFlightBooking = await FlightBooking.deploy();
-    await hardhatFlightBooking.deployed();
+    hardhatCarSale = await CarSale.deploy();
+    await hardhatCarSale.deployed();
   });
 
   it(`1. A passenger cannot book a ticket is either the departureCity or arrivalCity is an empty string.`, async function () {
-    // Expect createBooking to fail
+    // Expect createCarOrder to fail
     await expect(
-      hardhatFlightBooking.connect(buyer).createBooking("", "test", {
+      hardhatCarSale.connect(buyer).createCarOrder("", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       })
     ).to.be.reverted;
 
-    // Expect createBooking to fail
+    // Expect createCarOrder to fail
     await expect(
-      hardhatFlightBooking.connect(buyer).createBooking("test", "", {
+      hardhatCarSale.connect(buyer).createCarOrder("test", "", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       })
@@ -36,47 +36,47 @@ describe("Flight Booking", function () {
   });
 
   it("2. A passenger cannot check in if the booking is not valid (when isValidBooking is false).", async function () {
-    const newContract = await hardhatFlightBooking
+    const newContract = await hardhatCarSale
       .connect(buyer)
-      .createBooking("test", "test", {
+      .createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       });
 
-    // Expect confirmBooking to fail
-    await expect(hardhatFlightBooking.confirmBooking({})).to.be.reverted;
+    // Expect confirmCarOrder to fail
+    await expect(hardhatCarSale.confirmCarOrder({})).to.be.reverted;
   });
 
   it("3. A passenger cannot refund the ticket if the passenger has checked in.", async function () {
-    const newContract = await hardhatFlightBooking
+    const newContract = await hardhatCarSale
       .connect(buyer)
-      .createBooking("test", "test", {
+      .createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       });
-    const confirmContract = await hardhatFlightBooking
+    const confirmContract = await hardhatCarSale
       .connect(buyer)
-      .confirmBooking({
+      .confirmCarOrder({
         from: buyer.address,
       });
 
-    // Expect cancelBooking to fail
+    // Expect cancelCarOrder to fail
     await expect(
-      hardhatFlightBooking.connect(buyer).cancelBooking({ from: buyer.address })
+      hardhatCarSale.connect(buyer).cancelCarOrder({ from: buyer.address })
     ).to.be.reverted;
   });
 
   it("4. A passenger cannot buy another ticket before she/he has checked-in or canceled the air-ticket.", async function () {
-    const newContract = await hardhatFlightBooking
+    const newContract = await hardhatCarSale
       .connect(buyer)
-      .createBooking("test", "test", {
+      .createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       });
 
-    // Expect createBooking to fail
+    // Expect createCarOrder to fail
     await expect(
-      hardhatFlightBooking.connect(buyer).createBooking("test", "test", {
+      hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       })
@@ -84,9 +84,9 @@ describe("Flight Booking", function () {
   });
 
   it("5. A passenger cannot make a booking if he/she does not send enough ether to the smart contract.", async function () {
-    // Expect createBooking to fail
+    // Expect createCarOrder to fail
     await expect(
-      hardhatFlightBooking.connect(buyer).createBooking("test", "test", {
+      hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("0.01"),
       })
@@ -94,9 +94,9 @@ describe("Flight Booking", function () {
   });
 
   it("6. If everything is OK, a passenger should make a booking successfully.", async function () {
-    // Expect createBooking to succeed
+    // Expect createCarOrder to succeed
     await assert.isOk(
-      hardhatFlightBooking.connect(buyer).createBooking("test", "test", {
+      hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       })
@@ -104,9 +104,9 @@ describe("Flight Booking", function () {
   });
 
   it("7. A passenger should receive the money when she/he cancel the booking successfully.", async function () {
-    const newContract = await hardhatFlightBooking
+    const newContract = await hardhatCarSale
       .connect(buyer)
-      .createBooking("test", "test", {
+      .createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       });
@@ -114,9 +114,9 @@ describe("Flight Booking", function () {
     const newBalance = await buyer.getBalance();
     // console.log(newBalance);
 
-    const contractCancelled = await hardhatFlightBooking
+    const contractCancelled = await hardhatCarSale
       .connect(buyer)
-      .cancelBooking({
+      .cancelCarOrder({
         from: buyer.address,
       });
 
@@ -127,26 +127,26 @@ describe("Flight Booking", function () {
   });
 
   it("8. A passenger can check in if everything is good.", async function () {
-    // Expect createBooking to succeed
+    // Expect createCarOrder to succeed
     await assert.isOk(
-      hardhatFlightBooking.connect(buyer).createBooking("test", "test", {
+      hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       })
     );
 
-    // Expect confirmBooking to succeed
+    // Expect confirmCarOrder to succeed
     await assert.isOk(
-      hardhatFlightBooking.connect(buyer).confirmBooking({
+      hardhatCarSale.connect(buyer).confirmCarOrder({
         from: buyer.address,
       })
     );
   });
 
   it("9. The smart contract should have the correct balance of Ethers if a booking has been made.", async function () {
-    const newContract = hardhatFlightBooking
+    const newContract = hardhatCarSale
       .connect(buyer)
-      .createBooking("test", "test", {
+      .createCarOrder("test", "test", {
         from: buyer.address,
         value: ethers.utils.parseEther("10"),
       });
