@@ -1,6 +1,16 @@
-# Basic Sample Hardhat Project
+# CarConTracks
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+## Description
+
+## Running this Project
+
+### Software Versions
+The following software versions are used:
+- nvm version 0.39.1
+- node version 16.13.0
+- npm version 8.1.0
+- hardhat version 2.9.1
+- solidity version 0.8.0
 
 Try running some of the following tasks:
 
