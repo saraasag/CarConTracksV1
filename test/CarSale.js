@@ -17,7 +17,7 @@ describe("Car Sale", function () {
     await hardhatCarSale.deployed();
   });
 
-  it(`1. A passenger cannot book a ticket is either the departureCity or arrivalCity is an empty string.`, async function () {
+  it(`1. Customer cannot create order without name and address.`, async function () {
     // Expect createCarOrder to fail
     await expect(
       hardhatCarSale.connect(buyer).createCarOrder("", "test", {
@@ -35,7 +35,7 @@ describe("Car Sale", function () {
     ).to.be.reverted;
   });
 
-  it("2. A passenger cannot check in if the booking is not valid (when isValidBooking is false).", async function () {
+  it("2. Customer cannot confirm order unless order is valid.", async function () {
     const newContract = await hardhatCarSale
       .connect(buyer)
       .createCarOrder("test", "test", {
@@ -47,7 +47,7 @@ describe("Car Sale", function () {
     await expect(hardhatCarSale.confirmCarOrder({})).to.be.reverted;
   });
 
-  it("3. A passenger cannot refund the ticket if the passenger has checked in.", async function () {
+  it("3. Customer cannot be refunded if order was confirmed.", async function () {
     const newContract = await hardhatCarSale
       .connect(buyer)
       .createCarOrder("test", "test", {
@@ -66,7 +66,7 @@ describe("Car Sale", function () {
     ).to.be.reverted;
   });
 
-  it("4. A passenger cannot buy another ticket before she/he has checked-in or canceled the air-ticket.", async function () {
+  it("4. Customer cannot place another order if a previous one has been entered.", async function () {
     const newContract = await hardhatCarSale
       .connect(buyer)
       .createCarOrder("test", "test", {
@@ -83,7 +83,7 @@ describe("Car Sale", function () {
     ).to.be.reverted;
   });
 
-  it("5. A passenger cannot make a booking if he/she does not send enough ether to the smart contract.", async function () {
+  it("5. Customer must have the appropraite amount of funds to place order.", async function () {
     // Expect createCarOrder to fail
     await expect(
       hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
@@ -93,7 +93,7 @@ describe("Car Sale", function () {
     ).to.be.reverted;
   });
 
-  it("6. If everything is OK, a passenger should make a booking successfully.", async function () {
+  it("6. Customer can successfully place order.", async function () {
     // Expect createCarOrder to succeed
     await assert.isOk(
       hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
@@ -103,7 +103,7 @@ describe("Car Sale", function () {
     );
   });
 
-  it("7. A passenger should receive the money when she/he cancel the booking successfully.", async function () {
+  it("7. Customer is refunded when the order is cancelled.", async function () {
     const newContract = await hardhatCarSale
       .connect(buyer)
       .createCarOrder("test", "test", {
@@ -126,7 +126,7 @@ describe("Car Sale", function () {
     expect(await buyer.getBalance()).to.be.above(newBalance);
   });
 
-  it("8. A passenger can check in if everything is good.", async function () {
+  it("8. Customer can confirm order.", async function () {
     // Expect createCarOrder to succeed
     await assert.isOk(
       hardhatCarSale.connect(buyer).createCarOrder("test", "test", {
@@ -143,7 +143,7 @@ describe("Car Sale", function () {
     );
   });
 
-  it("9. The smart contract should have the correct balance of Ethers if a booking has been made.", async function () {
+  it("9. Smart contract should receive full funds from customer.", async function () {
     const newContract = hardhatCarSale
       .connect(buyer)
       .createCarOrder("test", "test", {
