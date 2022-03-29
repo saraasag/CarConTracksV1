@@ -68,8 +68,6 @@ function MainPage () {
 
   return(
     <div className='App'>
-     <Header/>
-
       <div className='App-header'>
        <h1>Rent or Loan?</h1>
        <h2>Please select whether you would like to rent or loan your car.</h2>

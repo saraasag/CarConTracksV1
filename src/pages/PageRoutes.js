@@ -2,9 +2,9 @@ const PageRoutes = {
     MainPage: '/main',
     SignInPage: '/signin',
     SignUpPage: '/signup',
-    CreateExperiencePage: '/main/create_experience',
-    VerifyExperiencePage: '/main/verify_experience',
-  };
+    CreateRentalPage: '/main/create_rental',
+    AddCarPage: '/main/add_car',
+};
   
   export default PageRoutes;
 

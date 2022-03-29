@@ -55,9 +55,18 @@ const Button2 = styled.button`
   cursor: pointer;
 `;
 function Header() {
+  const history = useHistory();
+  
+  const signupPage = () => {
+      history.push("/signup")
+  }
+  const signinPage = () => {
+    history.push("/signin")
+}
+  
   
   return (
-    
+    <Router>
     <AppBar position="static">
     <Nav>
       {/* The Typography component applies
@@ -67,14 +76,15 @@ function Header() {
         CarConTracks
       </Typography>
       <Bars />
-      <NavBtn onClick={pageRoutes.SignInPage} >
+      <NavBtn onClick={signinPage} >
       <NavBtnLink to='/SignInPage'>Log In</NavBtnLink>
       </NavBtn>
-      <NavBtn onClick={pageRoutes.SignUpPage}>
+      <NavBtn onClick={signupPage}>
       <NavBtnLink  to='/SignUpPage'>Sign Up</NavBtnLink>
       </NavBtn>
     </Nav>
     </AppBar>
+    </Router>
     
   );
   }
@@ -82,10 +92,10 @@ function Home() {
     const history = useHistory();
   
     const signupPage = () => {
-        history.push("/SignUpPage")
+        history.push("/signup")
     }
     const signinPage = () => {
-      history.push("/SignInPage")
+      history.push("/signin")
   }
     return (
       <Router>
@@ -160,22 +170,22 @@ function App() {
               {/* Switch of entry pages */}
               <Switch>
                 <Route exact path='/'>
-                  <Redirect to={Home} />
+                  <Redirect exact to={Home} />
                   <Home/>
                 </Route>
 
-                <Route exact path={pageRoutes.SignInPage} component = {SignInPage} > 
+                <Route exact path = '/signin' component = {pageRoutes.SignInPage} > 
                 <SignInPage/>
-                  {signedIn ? <Redirect to={pageRoutes.MainPage} /> : <SignInPage /> }
+                  {signedIn ? <Redirect exact to={pageRoutes.MainPage} /> : <SignInPage /> }
                 </Route>
 
-                <Route exact path={pageRoutes.SignUpPage}>
+                <Route exact path ='/signup' component={pageRoutes.SignUpPage}>
                 <SignUpPage/>
-                  {signedIn ? <Redirect to={pageRoutes.MainPage} /> : <SignUpPage /> }
+                  {signedIn ? <Redirect exact to={pageRoutes.MainPage} /> : <SignUpPage /> }
                 </Route>
 
                 <Route exact path={pageRoutes.MainPage}>
-                  {signedIn ? <MainPage /> : <Redirect to={pageRoutes.SignInPage} /> }
+                  {signedIn ? <MainPage /> : <Redirect exact to={pageRoutes.SignInPage} /> }
                 </Route>
 
               </Switch>
