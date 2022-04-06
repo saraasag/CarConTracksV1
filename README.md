@@ -19,6 +19,8 @@ The following software versions are used:
 - hardhat version 2.9.1
 - solidity version 0.8.0
 
+### Running Instructions
+
 1. Clone the repo and cd into it `git clone https://github.com/mattfaltyn/CarConTracksV1.git && cd /CarConTracksV1/Dapp`
 2. Install deps with yarn `yarn` or npm `npm install`
 3. Start hardhat `npx hardhat node --watch`
