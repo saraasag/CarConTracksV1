@@ -22,8 +22,8 @@ The following software versions are used:
 ### 1. Clone Repository
 
 ```sh
-$ git clone https://github.com/shannelu/AnimalAdoption-DApp.git
-$ cd AnimalAdoption-DApp/animal_adoption_dapp
+$ git clone https://github.com/mattfaltyn/CarConTracksV1.git
+$ cd CarConTracksV1/DApp
 ```
     
 ### 2. Install Dependencies
@@ -47,7 +47,8 @@ $ truffle migrate
 
 ##### Run Animal AdoptionRun Dapp
 ```sh
-cd Frontend
+$ cd Frontend
+$ npm install metamask-react
 $ npm start
 ```
 Browser will launch on [http://localhost:3000/signin](http://localhost:3000).
