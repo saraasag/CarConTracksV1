@@ -1,5 +1,9 @@
 # CarConTracks
 
+Code & documentation for the EECE 571G term project: CarConTracks DApp
+
+Authored by Negar Yassaie, Sara Gargoum, Mateusz Faltyn
+
 ## Description
 
 ## Running this Project
