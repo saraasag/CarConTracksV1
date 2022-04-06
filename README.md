@@ -16,6 +16,27 @@ Authored by Negar Yassaie, Sara Gargoum, Mateusz Faltyn
 <br/>
 <img src="Screenshots/architecture.png" width="1000">
 
+### Inital Screen
+> The figure below displays the initial banner that is displayed on a user’s webpage when they access CarConTracks DApp.
+<br/>
+<img src="Screenshots/initial-banner.jpg" width="1000">
+
+### Registration
+> The figure below displays the registration webpage.
+<br/>
+<img src="Screenshots/registration.jpg" width="1000">
+
+### Sign In
+> The figure below displays the sign in webpage.
+<br/>
+<img src="Screenshots/sign-in.jpg" width="1000">
+
+### Logged In
+> The figure below displays the webpage when the user is logged in.
+<br/>
+<img src="Screenshots/user-logged-in.jpg" width="1000">
+
+
 ## Running this Project
 
 ### Software Versions
