@@ -1,6 +1,6 @@
-# CarConTracks
+# CarConTracks <img src="Screenshots/CCT.jpeg" width="50">
 
-Code & documentation for the EECE 571G term project: CarConTracks DApp
+Code & documentation for the EECE 571G term project: CarConTracks DApp 
 
 Authored by Negar Yassaie, Sara Gargoum, Mateusz Faltyn
 
