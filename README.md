@@ -9,6 +9,13 @@ Authored by Negar Yassaie, Sara Gargoum, Mateusz Faltyn
 - Our aim in this project is to fill this gap in the market by creating a peer-to-peer car rental decentralized application. 
 - CarConTracks is an Ethereum-based DApp that allows individuals with the appropriate legal qualifications (i.e., age and driver’s license) to rent a car for a specific duration of time. Instead of signing in to an app of a centralized carsharing service provider such as Modo or evo, users of CarConTracks will be able to rent a car in a peer-to-peer manner anywhere across the globe where cars are located.
 
+## Screenshots of Our Project
+
+### Architecture
+> The figure below displays the system architecture of the CarConTracks DApp.
+<br/>
+<img src="screenshots/map.jpg" width="1000">
+
 ## Running this Project
 
 ### Software Versions
