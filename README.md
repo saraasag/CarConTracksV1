@@ -80,3 +80,7 @@ The following software versions are used:
 9. Start the React app: `npm start`
 
 The frontend should open at http://localhost:3000/
+
+## Future Work
+
+Due to time constraints, this project has several limitations which would need to be addressed prior to launch. See the [Final Report](https://github.com/mattfaltyn/CarConTracksV1/blob/main/Final%20Report/CarConTracks%20-%20Car%20Rental%20DApp%20Report.pdf) for a complete overview of the limitations and next steps for the project. 
