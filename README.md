@@ -51,4 +51,4 @@ $ cd Frontend
 $ npm install metamask-react
 $ npm start
 ```
-Browser will launch on [http://localhost:3000/signin](http://localhost:3000).
+Browser will launch on [http://localhost:3000](http://localhost:3000).
