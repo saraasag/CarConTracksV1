@@ -19,14 +19,35 @@ The following software versions are used:
 - hardhat version 2.9.1
 - solidity version 0.8.0
 
-Try running some of the following tasks:
+### 1. Clone Repository
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+```sh
+$ git clone https://github.com/shannelu/AnimalAdoption-DApp.git
+$ cd AnimalAdoption-DApp/animal_adoption_dapp
 ```
+    
+### 2. Install Dependencies
+
+```sh
+$ npm install metamask-react
+```
+    
+### 3. Run DApp
+
+##### Start up Ganache-cli or GUI
+
+```sh
+$ ./ganache-cli
+```
+
+##### Deploy contract
+```sh
+$ truffle migrate
+```
+
+##### Run Animal AdoptionRun Dapp
+```sh
+cd Frontend
+$ npm start
+```
+Browser will launch on [http://localhost:3000/signin](http://localhost:3000).
