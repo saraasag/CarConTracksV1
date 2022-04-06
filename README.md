@@ -14,7 +14,7 @@ Authored by Negar Yassaie, Sara Gargoum, Mateusz Faltyn
 ### Architecture
 > The figure below displays the system architecture of the CarConTracks DApp.
 <br/>
-<img src="screenshots/map.jpg" width="1000">
+<img src="Screenshots/architecture.png" width="1000">
 
 ## Running this Project
 
