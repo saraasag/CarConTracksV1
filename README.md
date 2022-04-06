@@ -14,47 +14,47 @@ Authored by Negar Yassaie, Sara Gargoum, Mateusz Faltyn
 ### Architecture
 > The figure below displays the system architecture of the CarConTracks DApp.
 <br/>
-<img src="Screenshots/architecture.png" width="750">
+<img src="Screenshots/architecture.png" width="500">
 
 ### Inital Screen
 > The figure below displays the initial banner that is displayed on a user’s webpage when they access CarConTracks DApp.
 <br/>
-<img src="Screenshots/initial-banner.jpg" width="750">
+<img src="Screenshots/initial-banner.jpg" width="500">
 
 ### Registration
 > The figure below displays the registration webpage.
 <br/>
-<img src="Screenshots/registration.jpg" width="750">
+<img src="Screenshots/registration.jpg" width="500">
 
 ### Sign In
 > The figure below displays the sign in webpage.
 <br/>
-<img src="Screenshots/sign-in.jpg" width="750">
+<img src="Screenshots/sign-in.jpg" width="500">
 
 ### Logged In
 > The figure below displays the webpage when the user is logged in.
 <br/>
-<img src="Screenshots/user-logged-in.jpg" width="750">
+<img src="Screenshots/user-logged-in.jpg" width="500">
 
 ### Connecting to MetaMask
 > The figure below displays the webpage when the user is connecting to MetaMask.
 <br/>
-<img src="Screenshots/conntecting-metamask.jpg" width="750">
+<img src="Screenshots/conntecting-metamask.jpg" width="500">
 
 ### Connected to MetaMask
 > The figure below displays the webpage when the user is connected to MetaMask.
 <br/>
-<img src="Screenshots/connected-metamask.jpg" width="750">
+<img src="Screenshots/connected-metamask.jpg" width="500">
 
 ### Loaning a Car
 > The figure below displays the webpage when the user is in the process of loaning a car.
 <br/>
-<img src="Screenshots/loaning.jpg" width="750">
+<img src="Screenshots/loaning.jpg" width="500">
 
 ### Renting a Car
 > The figure below displays the webpage when the user is in the process of renting a car.
 <br/>
-<img src="Screenshots/renting.jpg" width="750">
+<img src="Screenshots/renting.jpg" width="500">
 
 
 ## Running this Project
