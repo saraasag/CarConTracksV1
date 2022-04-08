@@ -74,7 +74,7 @@ The following software versions are used:
 3. Start hardhat `npx hardhat node --watch`
 4. Open up a new terminal
 5. Enter the frontend directory: `cd Frontend`
-6. Install dependencies: `npm install`
+6. Install dependencies: `npm install metamask-react`
 7. Import seed phrase in Metamask. The default mnemonic currently used by hardhat is `test test test test test test test test test test test junk`
 8. Ensure Metamask RPC is set to `http://localhost:8545` and chainID `31337`.
 9. Start the React app: `npm start`
