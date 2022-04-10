@@ -1,7 +1,9 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
+pragma abicoder v2;
 
-// import "hardhat/console.sol";
+
+//import "/hardhat/console.sol";
 
 contract CarRental {
     // Define state variables
@@ -26,6 +28,7 @@ contract CarRental {
 
     struct CarInfo {
         bool isAvailable;
+        address payable carOwner;
         string carLocation;
         uint256 carID;
         uint256 price;
@@ -250,6 +253,13 @@ contract CarRental {
     function getcarAvailability(uint256 _carID) public view returns (bool) {
         return cars[_carID].isAvailable;
     }
+    function getPostedCars() public pure returns(CarInfo memory, string memory) {
+        CarInfo memory _car;
+        return (_car, "Get posted car information!");
+    }
+    function getUserName() public view returns(bool, string memory, address) {
+        return (true, users[msg.sender].userName, msg.sender);
+    }
     function getorderValidity () public view returns (bool) {
         return rentals[rentalOwner].isValidRental;
     }
@@ -284,5 +294,9 @@ contract CarRental {
     function getBalanceofOwner() public view returns(uint256) {
         return balances[rentalOwner];
     } 
+
+
+
+
     
 }
