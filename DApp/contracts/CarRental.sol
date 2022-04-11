@@ -2,9 +2,6 @@
 pragma solidity ^0.8.0;
 pragma abicoder v2;
 
-
-//import "/hardhat/console.sol";
-
 contract CarRental {
     // Define state variables
     address payable rentalOwner;

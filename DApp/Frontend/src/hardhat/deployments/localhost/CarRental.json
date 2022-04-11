@@ -1,0 +1,1024 @@
+{
+  "address": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+  "abi": [
+    {
+      "inputs": [],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "userName",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "password",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "userID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address payable",
+              "name": "userAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "isUserLoggedIn",
+              "type": "bool"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct CarRental.User",
+          "name": "user",
+          "type": "tuple"
+        }
+      ],
+      "name": "LoginDone",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "fail",
+          "type": "string"
+        }
+      ],
+      "name": "LoginFail",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "string",
+              "name": "userName",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "password",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "userID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address payable",
+              "name": "userAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "isUserLoggedIn",
+              "type": "bool"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct CarRental.User",
+          "name": "user",
+          "type": "tuple"
+        }
+      ],
+      "name": "accountCreated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "carID",
+          "type": "uint256"
+        },
+        {
+          "components": [
+            {
+              "internalType": "bool",
+              "name": "isAvailable",
+              "type": "bool"
+            },
+            {
+              "internalType": "string",
+              "name": "carLocation",
+              "type": "string"
+            },
+            {
+              "internalType": "uint256",
+              "name": "carID",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "price",
+              "type": "uint256"
+            },
+            {
+              "internalType": "string",
+              "name": "ownerName",
+              "type": "string"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct CarRental.CarInfo",
+          "name": "car",
+          "type": "tuple"
+        }
+      ],
+      "name": "carAdded",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "customerName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "customerAge",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "licenseID",
+          "type": "uint256"
+        }
+      ],
+      "name": "carReturned",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "customerName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "customerAge",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "licenseID",
+          "type": "uint256"
+        }
+      ],
+      "name": "rentalCanceled",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "customerName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "customerAge",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "licenseID",
+          "type": "uint256"
+        }
+      ],
+      "name": "rentalConfirmed",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "customerName",
+          "type": "string"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "customerAge",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "licenseID",
+          "type": "uint256"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "rentalPlaced",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_password",
+          "type": "string"
+        }
+      ],
+      "name": "Login",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "_Account",
+          "type": "address"
+        },
+        {
+          "internalType": "string",
+          "name": "_userName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_password",
+          "type": "string"
+        }
+      ],
+      "name": "SignUp",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_carOwner",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "_carLocation",
+          "type": "string"
+        }
+      ],
+      "name": "addCar",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "balances",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "cancelRental",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "cars",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isAvailable",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "carLocation",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "carID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "price",
+          "type": "uint256"
+        },
+        {
+          "internalType": "string",
+          "name": "ownerName",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "confirmRental",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "_customerName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_age",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_licenseID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "createRental",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBalanceofOwner",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getBalanceofSC",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "getcarAvailability",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "getcarID",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "getcarLocation",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getcustomerAge",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getcustomerName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getlicenseID",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getorderConfirmation",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getorderReturn",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "getorderValidity",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "getownerName",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "logout",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "price",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "rentals",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "isValidRental",
+          "type": "bool"
+        },
+        {
+          "internalType": "string",
+          "name": "customerName",
+          "type": "string"
+        },
+        {
+          "internalType": "uint256",
+          "name": "customerAge",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "licenseID",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "rentDuration",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bool",
+          "name": "hasReturned",
+          "type": "bool"
+        },
+        {
+          "internalType": "bool",
+          "name": "hasConfirmed",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_carID",
+          "type": "uint256"
+        }
+      ],
+      "name": "returnCar",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalCarNum",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0xe4977deb18cac554a6477938236c4f476edc863fd678d8e36cfbce296c26429c",
+  "receipt": {
+    "to": null,
+    "from": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
+    "contractAddress": "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+    "transactionIndex": 0,
+    "gasUsed": "1754886",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x959ecda3065ed532eb0956c4825555a4cbc5a0b893af5003945d5a710cc2cd6f",
+    "transactionHash": "0xe4977deb18cac554a6477938236c4f476edc863fd678d8e36cfbce296c26429c",
+    "logs": [],
+    "blockNumber": 1,
+    "cumulativeGasUsed": "1754886",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "solcInputHash": "0a663a96bbed4b4e0e2c12f9abb65776",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.0+commit.c7dfd78e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"userName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"password\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"userID\",\"type\":\"uint256\"},{\"internalType\":\"address payable\",\"name\":\"userAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isUserLoggedIn\",\"type\":\"bool\"}],\"indexed\":false,\"internalType\":\"struct CarRental.User\",\"name\":\"user\",\"type\":\"tuple\"}],\"name\":\"LoginDone\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"fail\",\"type\":\"string\"}],\"name\":\"LoginFail\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"string\",\"name\":\"userName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"password\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"userID\",\"type\":\"uint256\"},{\"internalType\":\"address payable\",\"name\":\"userAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isUserLoggedIn\",\"type\":\"bool\"}],\"indexed\":false,\"internalType\":\"struct CarRental.User\",\"name\":\"user\",\"type\":\"tuple\"}],\"name\":\"accountCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"carID\",\"type\":\"uint256\"},{\"components\":[{\"internalType\":\"bool\",\"name\":\"isAvailable\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"carLocation\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"carID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"ownerName\",\"type\":\"string\"}],\"indexed\":false,\"internalType\":\"struct CarRental.CarInfo\",\"name\":\"car\",\"type\":\"tuple\"}],\"name\":\"carAdded\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"customerName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"customerAge\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"licenseID\",\"type\":\"uint256\"}],\"name\":\"carReturned\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"customerName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"customerAge\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"licenseID\",\"type\":\"uint256\"}],\"name\":\"rentalCanceled\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"customerName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"customerAge\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"licenseID\",\"type\":\"uint256\"}],\"name\":\"rentalConfirmed\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"customerName\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"customerAge\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"licenseID\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"carID\",\"type\":\"uint256\"}],\"name\":\"rentalPlaced\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"Login\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address payable\",\"name\":\"_Account\",\"type\":\"address\"},{\"internalType\":\"string\",\"name\":\"_userName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_password\",\"type\":\"string\"}],\"name\":\"SignUp\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_carOwner\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"_carLocation\",\"type\":\"string\"}],\"name\":\"addCar\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"balances\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"cancelRental\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"cars\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isAvailable\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"carLocation\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"carID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"price\",\"type\":\"uint256\"},{\"internalType\":\"string\",\"name\":\"ownerName\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"confirmRental\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_customerName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_age\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_licenseID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_carID\",\"type\":\"uint256\"}],\"name\":\"createRental\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBalanceofOwner\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getBalanceofSC\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_carID\",\"type\":\"uint256\"}],\"name\":\"getcarAvailability\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_carID\",\"type\":\"uint256\"}],\"name\":\"getcarID\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_carID\",\"type\":\"uint256\"}],\"name\":\"getcarLocation\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getcustomerAge\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getcustomerName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getlicenseID\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getorderConfirmation\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getorderReturn\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getorderValidity\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_carID\",\"type\":\"uint256\"}],\"name\":\"getownerName\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_address\",\"type\":\"address\"}],\"name\":\"logout\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"price\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"rentals\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"isValidRental\",\"type\":\"bool\"},{\"internalType\":\"string\",\"name\":\"customerName\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"customerAge\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"licenseID\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"rentDuration\",\"type\":\"uint256\"},{\"internalType\":\"bool\",\"name\":\"hasReturned\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"hasConfirmed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_carID\",\"type\":\"uint256\"}],\"name\":\"returnCar\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalCarNum\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/CarRental.sol\":\"CarRental\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":50},\"remappings\":[]},\"sources\":{\"contracts/CarRental.sol\":{\"content\":\"//SPDX-License-Identifier: Unlicense\\npragma solidity ^0.8.0;\\n\\n// test comments \\n\\ncontract CarRental {\\n    // Define state variables\\n    address payable rentalOwner;\\n    address payable carOwner;\\n    uint256 constant public price = 1e17; // 0.1 ETH\\n    uint256 public totalCarNum = 0;\\n    uint256 private totalUserNumber = 0;\\n\\n    mapping(address => uint256) public balances;\\n\\n\\n    struct CustomerInfo {\\n        bool isValidRental;\\n        string customerName;\\n        uint customerAge;\\n        uint256 licenseID;\\n        uint rentDuration;\\n        bool hasReturned;\\n        bool hasConfirmed;\\n    }\\n\\n    struct CarInfo {\\n        bool isAvailable;\\n        string carLocation;\\n        uint256 carID;\\n        uint256 price;\\n        string ownerName;\\n\\n    }\\n\\n    struct User {\\n        string userName;\\n        string password;\\n        uint256 userID;\\n        address payable userAddress;\\n        bool isUserLoggedIn;\\n    }\\n\\n    mapping(address => CustomerInfo) public rentals;\\n    mapping(uint256 => CarInfo) public cars;\\n    mapping(address => User) private users;\\n    //mapping(uint256 => address) private caridtocarowner;\\n\\n    //CarInfo[] carInformation; \\n\\n    //CustomerInfo storage customer = rentals[rentalOwner];\\n    \\n\\n\\n    \\n\\n    constructor() {\\n        rentalOwner = payable(msg.sender);\\n        carOwner = payable(address(this));\\n\\n    }\\n\\n    // Account creation events\\n\\n    event accountCreated(\\n        User user\\n    );\\n\\n    event LoginDone(User user);\\n\\n    event LoginFail(string fail);\\n\\n    // Car Info Events\\n\\n    event carAdded(\\n        uint256 indexed carID,\\n        //address payable indexed carOwner,\\n        CarInfo car\\n    );\\n\\n    // Rental Events\\n\\n    event rentalPlaced(     \\n        string customerName,\\n        uint customerAge,\\n        uint256 licenseID,\\n        uint256 carID\\n    );\\n\\n    event rentalConfirmed(       \\n        string customerName,\\n        uint customerAge,\\n        uint256 licenseID\\n        //uint256 carID\\n\\n    );\\n\\n    event rentalCanceled(       \\n        string customerName,\\n        uint customerAge,\\n        uint256 licenseID\\n        //uint256 carID\\n\\n    );\\n    event carReturned(       \\n        string customerName,\\n        uint customerAge,\\n        uint256 licenseID\\n        //uint256 carID\\n\\n    );\\n\\n    // Modifiers\\n\\n    modifier onlyOwner() {\\n        require(msg.sender == rentalOwner, 'only order owner can call this function');\\n        _;\\n    }\\n    // modifier onlyOneRental() {\\n    //     require(rentalCount <= 1, 'only one order at a time');\\n    //     _;\\n    // }\\n    modifier existingRental() {\\n        require(rentals[rentalOwner].isValidRental == true, 'Please confirm/cancel existing order');\\n        _;\\n    }\\n    modifier unconfirmedRental() {\\n        require(rentals[rentalOwner].hasConfirmed == false, 'Cannot cancel confirmed rental');\\n        _;\\n    }\\n    modifier validInfo(string memory _customerName, uint _age, uint256 _licenseID) {\\n        require(bytes(_customerName).length > 0  && _age > 0 && _licenseID >0,  'Please enter name, age and license');\\n        require(_age >= 18, 'Invalid age');\\n        _;\\n    }\\n    modifier allowNewRental() {\\n        require(rentals[rentalOwner].isValidRental == false, 'Please start new rental');\\n        _;\\n    }\\n    modifier enoughAmount(){\\n        require(msg.value >= price, 'No enough Ethers');\\n        _;\\n    }\\n    // modifier carAvailable(uint256 _carID){\\n    //     require(cars[_carID].isAvailable == true, 'Car is not available.');\\n    //     _;\\n    // }\\n\\n    // Account functions\\n    function SignUp(address payable _Account, string memory _userName, string memory _password) public returns (bool) {\\n        require(_Account != address(0), \\\"Account can not be empty\\\");\\n        require(users[_Account].userID == 0, \\\"Account already exists\\\");\\n        require(bytes(_userName).length > 0, \\\"Please enter a name\\\");\\n        require(bytes(_password).length > 0, \\\"Please enter a password\\\");\\n        User memory _user;\\n        totalUserNumber++;\\n        _user.userID = totalUserNumber;\\n        _user.userAddress = _Account;\\n        _user.userName = _userName;\\n        _user.password = _password;\\n        _user.isUserLoggedIn = false;\\n\\n        users[_Account] = _user;\\n\\n        emit accountCreated(_user);\\n        return true;\\n    }\\n    function Login(address _address, string memory _password) public returns (bool) {\\n        User memory _user = users[_address];\\n        if (keccak256(abi.encodePacked(_user.password)) ==\\n            keccak256(abi.encodePacked(_password))) {\\n            _user.isUserLoggedIn = true;\\n            emit LoginDone(_user);\\n            return _user.isUserLoggedIn;\\n        } else {\\n            emit LoginFail(\\\"Incorrect Password\\\");\\n            return false;\\n        }\\n    }\\n    function logout(address _address) public {\\n        users[_address].isUserLoggedIn = false;\\n    }\\n\\n\\n    // Rentee functions\\n\\n    function addCar (string memory _carOwner, string memory _carLocation) public returns (bool) {\\n        // for (uint i = 0; i < carInformation.length; i++) {\\n        //     require(_carID != carInformation[i].carID && _carID > 0, 'Please choose a unique carID' );\\n\\n        // }\\n        require(bytes(_carOwner).length > 0 && bytes(_carLocation).length > 0 ,  'Please enter name and car location');\\n        CarInfo memory _car;\\n        totalCarNum++;\\n        _car.ownerName = _carOwner;\\n        _car.carLocation = _carLocation;\\n        _car.carID = totalCarNum;\\n        _car.isAvailable = true;\\n        cars[totalCarNum] = _car;\\n        //carInformation.push(_car);\\n        //cars[carOwner].push(information);\\n\\n        emit carAdded(totalCarNum, _car);\\n        return true;\\n\\n    }\\n\\n    // Rental main functions\\n\\n    function createRental (string memory _customerName, uint _age, uint256 _licenseID, uint256 _carID) public payable allowNewRental() enoughAmount() validInfo(_customerName, _age, _licenseID) {\\n        CarInfo memory _car = cars[_carID];\\n        require(_car.isAvailable == true, 'Car is not available.');\\n        rentals[rentalOwner].isValidRental = true;\\n        rentals[rentalOwner].customerName = _customerName;\\n        rentals[rentalOwner].customerAge = _age;\\n        rentals[rentalOwner].licenseID = _licenseID;\\n        rentals[rentalOwner].hasConfirmed = false;\\n        rentals[rentalOwner].hasReturned = false;\\n        _car.isAvailable = false;\\n\\n        //wallet.transfer(msg.value);\\n        emit rentalPlaced(rentals[rentalOwner].customerName, rentals[rentalOwner].customerAge, rentals[rentalOwner].licenseID, _carID);\\n    }\\n    function confirmRental() public existingRental() {\\n        rentals[rentalOwner].hasConfirmed = true;\\n        // wallet.transfer(msg.value);\\n        emit rentalConfirmed(rentals[rentalOwner].customerName, rentals[rentalOwner].customerAge, rentals[rentalOwner].licenseID);\\n    }\\n\\n    function cancelRental() public payable existingRental() unconfirmedRental() {\\n        rentals[rentalOwner].hasConfirmed = false;\\n        rentals[rentalOwner].isValidRental = false;\\n        rentalOwner.transfer(price);\\n\\n        emit rentalCanceled(rentals[rentalOwner].customerName, rentals[rentalOwner].customerAge, rentals[rentalOwner].licenseID);\\n    }\\n    function returnCar(uint256 _carID) public existingRental(){\\n        rentals[rentalOwner].hasConfirmed = false;\\n        rentals[rentalOwner].isValidRental = false;\\n        rentals[rentalOwner].hasReturned = true;\\n        cars[_carID].isAvailable = true;\\n\\n        emit carReturned(rentals[rentalOwner].customerName, rentals[rentalOwner].customerAge, rentals[rentalOwner].licenseID);\\n    }\\n\\n\\n    // Functions for testing\\n\\n\\n    function getcarAvailability(uint256 _carID) public view returns (bool) {\\n        return cars[_carID].isAvailable;\\n    }\\n    function getorderValidity () public view returns (bool) {\\n        return rentals[rentalOwner].isValidRental;\\n    }\\n    function getorderConfirmation () public view returns (bool) {\\n        return rentals[rentalOwner].hasConfirmed;\\n    }\\n\\n    function getorderReturn() public view returns (bool) {\\n        return rentals[rentalOwner].hasReturned;\\n    }\\n    function getcustomerName () public view returns (string memory) {\\n        return rentals[rentalOwner].customerName;\\n    }\\n    function getcustomerAge() public view returns (uint) {\\n        return rentals[rentalOwner].customerAge;\\n    }\\n    function getlicenseID() public view returns (uint256) {\\n        return rentals[rentalOwner].licenseID;\\n    }\\n    function getownerName(uint256 _carID) public view returns (string memory) {\\n        return cars[_carID].ownerName;\\n    }\\n    function getcarLocation(uint256 _carID) public view returns (string memory) {\\n        return cars[_carID].carLocation;\\n    }\\n    function getcarID(uint256 _carID) public view returns (uint256) {\\n        return cars[_carID].carID;\\n    }\\n    function getBalanceofSC() public view returns(uint256) {\\n        return carOwner.balance;\\n    } \\n    function getBalanceofOwner() public view returns(uint256) {\\n        return balances[rentalOwner];\\n    } \\n    \\n}\",\"keccak256\":\"0xcedf7a691a6c8c654d84c56ad71b8a0658b7b94069aa88d451ff7f39254653aa\",\"license\":\"Unlicense\"}},\"version\":1}",
+  "bytecode": "0x60806040526000600255600060035534801561001a57600080fd5b50600080546001600160a01b031990811633179091556001805490911630179055611de28061004a6000396000f3fe6080604052600436106101365760003560e01c806364ea9ef3116100b157806364ea9ef3146102865780636ba85eb41461029b5780636bdd7e9a146102ce5780636f2b2c70146102ee5780638f1395e514610303578063a035b1fe14610323578063a4b4e42b14610338578063ba0235db14610358578063cc51f9b914610378578063de320add14610398578063e7411f83146103ad578063f183d377146103cd578063f7746e36146103e257610136565b8063075569a31461013b5780630bccc291146101665780631436d16e1461017d57806317f956e0146101aa5780631af6c8cc146101ca57806321b3e898146101df57806327e235e3146101f25780632f5edecd1461021257806330ff2ed4146102345780633a15add0146102545780634fb0a98c1461026957806364d3d1361461027e575b600080fd5b34801561014757600080fd5b50610150610413565b60405161015d9190611cd7565b60405180910390f35b34801561017257600080fd5b5061017b610423565b005b34801561018957600080fd5b5061019d610198366004611606565b6104e7565b60405161015d919061186d565b3480156101b657600080fd5b5061017b6101c536600461176c565b6106a1565b3480156101d657600080fd5b5061019d61079b565b61017b6101ed36600461171b565b6107be565b3480156101fe57600080fd5b5061015061020d3660046115e3565b610b0f565b34801561021e57600080fd5b50610227610b21565b60405161015d9190611906565b34801561024057600080fd5b5061015061024f36600461176c565b610bce565b34801561026057600080fd5b5061019d610be3565b34801561027557600080fd5b5061019d610c0b565b61017b610c2a565b34801561029257600080fd5b50610150610d6a565b3480156102a757600080fd5b506102bb6102b63660046115e3565b610d70565b60405161015d97969594939291906118bd565b3480156102da57600080fd5b5061019d6102e93660046116c5565b610e3e565b3480156102fa57600080fd5b50610150610f50565b34801561030f57600080fd5b5061019d61031e36600461176c565b610f6c565b34801561032f57600080fd5b50610150610f81565b34801561034457600080fd5b5061019d610353366004611678565b610f8d565b34801561036457600080fd5b5061022761037336600461176c565b6111f2565b34801561038457600080fd5b5061017b6103933660046115e3565b611297565b3480156103a457600080fd5b506101506112be565b3480156103b957600080fd5b506102276103c836600461176c565b6112dd565b3480156103d957600080fd5b506101506112fd565b3480156103ee57600080fd5b506104026103fd36600461176c565b61131c565b60405161015d959493929190611878565b6001546001600160a01b03163190565b600080546001600160a01b031681526005602052604090205460ff1615156001146104695760405162461bcd60e51b815260040161046090611bc3565b60405180910390fd5b600080546001600160a01b039081168252600560208190526040808420909101805461ff00191661010017905582549091168252908190206002810154600382015492517fed78816087eca6df0f765f0aca46ab87a736468a8764ef88ed0b41c4adaff949936104dd936001019291611919565b60405180910390a1565b60006001600160a01b03841661050f5760405162461bcd60e51b815260040161046090611997565b6001600160a01b038416600090815260076020526040902060020154156105485760405162461bcd60e51b815260040161046090611b6e565b60008351116105695760405162461bcd60e51b8152600401610460906119c9565b600082511161058a5760405162461bcd60e51b8152600401610460906119f6565b61059261145f565b600380549060006105a283611d57565b90915550506003546040808301919091526001600160a01b038616606083018190528583526020808401869052600060808501819052918252600781529190208251805184936105f6928492910190611499565b50602082810151805161060f9260018501920190611499565b5060408281015160028301556060830151600390920180546080909401511515600160a01b0260ff60a01b196001600160a01b039094166001600160a01b03199095169490941792909216929092179055517f2c988b5a7cf9ffacc161786f216866af35142b37c1dc5484c1b961f166e2b8829061068e908390611c69565b60405180910390a1506001949350505050565b600080546001600160a01b031681526005602052604090205460ff1615156001146106de5760405162461bcd60e51b815260040161046090611bc3565b600080546001600160a01b0390811682526005602081815260408085208301805461ff0019169055845484168552808520805460ff199081169091558554851686528186208401805482166001908117909155878752600684528287208054909216811790915585549094168552919052918290206002810154600382015493517ff11af35f6391ead7879040e53c10181c087a76737f0f8a4947097027f540b8bb9461079094939093019290611919565b60405180910390a150565b600080546001600160a01b03168152600560208190526040909120015460ff1690565b600080546001600160a01b031681526005602052604090205460ff16156107f75760405162461bcd60e51b815260040161046090611a82565b67016345785d8a000034101561081f5760405162461bcd60e51b81526004016104609061196d565b838383600083511180156108335750600082115b801561083f5750600081115b61085b5760405162461bcd60e51b815260040161046090611af5565b601282101561087c5760405162461bcd60e51b815260040161046090611b9e565b6000848152600660209081526040808320815160a08101909252805460ff161515825260018101805492939192918401916108b690611d1c565b80601f01602080910402602001604051908101604052809291908181526020018280546108e290611d1c565b801561092f5780601f106109045761010080835404028352916020019161092f565b820191906000526020600020905b81548152906001019060200180831161091257829003601f168201915b50505050508152602001600282015481526020016003820154815260200160048201805461095c90611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461098890611d1c565b80156109d55780601f106109aa576101008083540402835291602001916109d5565b820191906000526020600020905b8154815290600101906020018083116109b857829003601f168201915b5050509190925250508151919250501515600114610a055760405162461bcd60e51b815260040161046090611a27565b600080546001600160a01b039081168252600560209081526040808420805460ff19166001908117909155845490931684529092208a51610a4e939190920191908b0190611499565b50600080546001600160a01b03908116825260056020818152604080852060029081018d905585548516865281862060039081018d90558654861687528287208501805461ff00191690558654861687528287208501805460ff19169055868852865490951686529290915292839020908101549181015492517f25927a58d730df3be0b68622ecf036a86a34b53d452a9f851bc6b69165c468a293610afd9360019390930192918a9061193e565b60405180910390a15050505050505050565b60046020526000908152604090205481565b600080546001600160a01b03168152600560205260409020600101805460609190610b4b90611d1c565b80601f0160208091040260200160405190810160405280929190818152602001828054610b7790611d1c565b8015610bc45780601f10610b9957610100808354040283529160200191610bc4565b820191906000526020600020905b815481529060010190602001808311610ba757829003601f168201915b5050505050905090565b60009081526006602052604090206002015490565b600080546001600160a01b031681526005602081905260409091200154610100900460ff1690565b600080546001600160a01b031681526005602052604090205460ff1690565b600080546001600160a01b031681526005602052604090205460ff161515600114610c675760405162461bcd60e51b815260040161046090611bc3565b600080546001600160a01b031681526005602081905260409091200154610100900460ff1615610ca95760405162461bcd60e51b815260040161046090611b37565b600080546001600160a01b039081168252600560208190526040808420909101805461ff0019169055825482168352808320805460ff19169055825490519116919067016345785d8a00009082818181858883f19350505050158015610d13573d6000803e3d6000fd5b50600080546001600160a01b0316815260056020526040908190206002810154600382015492517f558f292960addceeabcd96661a332929684e0344c1c679492d49bb64498c6a84936104dd936001019291611919565b60025481565b6005602052600090815260409020805460018201805460ff9092169291610d9690611d1c565b80601f0160208091040260200160405190810160405280929190818152602001828054610dc290611d1c565b8015610e0f5780601f10610de457610100808354040283529160200191610e0f565b820191906000526020600020905b815481529060010190602001808311610df257829003601f168201915b505050506002830154600384015460048501546005909501549394919390925060ff8082169161010090041687565b6000808351118015610e51575060008251115b610e6d5760405162461bcd60e51b815260040161046090611ab3565b610e7561151d565b60028054906000610e8583611d57565b90915550506080810184905260208082018481526002546040808501829052600180865260009283526006855291208451815460ff1916901515178155915180518594610ed6938501920190611499565b50604082015160028201556060820151600382015560808201518051610f06916004840191602090910190611499565b509050506002547f902d5a109e988730eb8999e5c34dcb60d536e0a7d52d16335bcd3c5648f1d2ca82604051610f3c9190611c07565b60405180910390a260019150505b92915050565b600080546001600160a01b031681526004602052604090205490565b60009081526006602052604090205460ff1690565b67016345785d8a000081565b6001600160a01b038216600090815260076020526040808220815160a0810190925280548392919082908290610fc290611d1c565b80601f0160208091040260200160405190810160405280929190818152602001828054610fee90611d1c565b801561103b5780601f106110105761010080835404028352916020019161103b565b820191906000526020600020905b81548152906001019060200180831161101e57829003601f168201915b5050505050815260200160018201805461105490611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461108090611d1c565b80156110cd5780601f106110a2576101008083540402835291602001916110cd565b820191906000526020600020905b8154815290600101906020018083116110b057829003601f168201915b505050918352505060028201546020808301919091526003909201546001600160a01b038116604080840191909152600160a01b90910460ff1615156060909201919091525191925061112291859101611851565b60405160208183030381529060405280519060200120816020015160405160200161114d9190611851565b6040516020818303038152906040528051906020012014156111b357600160808201526040517fbdd5bb70264ff2c0cb7e174074895e522aa9d53f919fb486c17c158142a96e09906111a0908390611c69565b60405180910390a1608001519050610f4a565b7f4c74530a3ef466183b718601f9ad1f7a0c8ec56463a9e68efef55c81e7e4141f6040516111e090611a56565b60405180910390a16000915050610f4a565b600081815260066020526040902060010180546060919061121290611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461123e90611d1c565b801561128b5780601f106112605761010080835404028352916020019161128b565b820191906000526020600020905b81548152906001019060200180831161126e57829003601f168201915b50505050509050919050565b6001600160a01b03166000908152600760205260409020600301805460ff60a01b19169055565b600080546001600160a01b031681526005602052604090206002015490565b600081815260066020526040902060040180546060919061121290611d1c565b600080546001600160a01b031681526005602052604090206003015490565b6006602052600090815260409020805460018201805460ff909216929161134290611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461136e90611d1c565b80156113bb5780601f10611390576101008083540402835291602001916113bb565b820191906000526020600020905b81548152906001019060200180831161139e57829003601f168201915b5050505050908060020154908060030154908060040180546113dc90611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461140890611d1c565b80156114555780601f1061142a57610100808354040283529160200191611455565b820191906000526020600020905b81548152906001019060200180831161143857829003601f168201915b5050505050905085565b6040518060a0016040528060608152602001606081526020016000815260200160006001600160a01b031681526020016000151581525090565b8280546114a590611d1c565b90600052602060002090601f0160209004810192826114c7576000855561150d565b82601f106114e057805160ff191683800117855561150d565b8280016001018555821561150d579182015b8281111561150d5782518255916020019190600101906114f2565b5061151992915061154e565b5090565b6040518060a00160405280600015158152602001606081526020016000815260200160008152602001606081525090565b5b80821115611519576000815560010161154f565b600082601f830112611573578081fd5b81356001600160401b038082111561158d5761158d611d7e565b604051601f8301601f1916810160200182811182821017156115b1576115b1611d7e565b6040528281528483016020018610156115c8578384fd5b82602086016020830137918201602001929092529392505050565b6000602082840312156115f4578081fd5b81356115ff81611d94565b9392505050565b60008060006060848603121561161a578182fd5b833561162581611d94565b925060208401356001600160401b0380821115611640578384fd5b61164c87838801611563565b93506040860135915080821115611661578283fd5b5061166e86828701611563565b9150509250925092565b6000806040838503121561168a578182fd5b823561169581611d94565b915060208301356001600160401b038111156116af578182fd5b6116bb85828601611563565b9150509250929050565b600080604083850312156116d7578182fd5b82356001600160401b03808211156116ed578384fd5b6116f986838701611563565b9350602085013591508082111561170e578283fd5b506116bb85828601611563565b60008060008060808587031215611730578081fd5b84356001600160401b03811115611745578182fd5b61175187828801611563565b97602087013597506040870135966060013595509350505050565b60006020828403121561177d578081fd5b5035919050565b6000815180845261179c816020860160208601611cec565b601f01601f19169290920160200192915050565b8054600090600281046001808316806117ca57607f831692505b60208084108214156117ea57634e487b7160e01b86526022600452602486fd5b6117f48489611cd7565b828015611808576001811461181957611844565b60ff19871682528282019750611844565b61182289611ce0565b60005b8781101561183e57815484820152908601908401611825565b83019850505b5050505050505092915050565b60008251611863818460208701611cec565b9190910192915050565b901515815260200190565b6000861515825260a0602083015261189360a0830187611784565b85604084015284606084015282810360808401526118b18185611784565b98975050505050505050565b6000881515825260e060208301526118d860e0830189611784565b60408301979097525060608101949094526080840192909252151560a0830152151560c09091015292915050565b6000602082526115ff6020830184611784565b60006060825261192c60608301866117b0565b60208301949094525060400152919050565b60006080825261195160808301876117b0565b6020830195909552506040810192909252606090910152919050565b60208082526010908201526f4e6f20656e6f7567682045746865727360801b604082015260600190565b6020808252601890820152774163636f756e742063616e206e6f7420626520656d70747960401b604082015260600190565b602080825260139082015272506c6561736520656e7465722061206e616d6560681b604082015260600190565b602080825260179082015276141b19585cd948195b9d195c8818481c185cdcdddbdc99604a1b604082015260600190565b60208082526015908201527421b0b91034b9903737ba1030bb30b4b630b136329760591b604082015260600190565b602080825260129082015271125b98dbdc9c9958dd0814185cdcdddbdc9960721b604082015260600190565b602080825260179082015276141b19585cd9481cdd185c9d081b995dc81c995b9d185b604a1b604082015260600190565b60208082526022908201527f506c6561736520656e746572206e616d6520616e6420636172206c6f6361746960408201526137b760f11b606082015260800190565b60208082526022908201527f506c6561736520656e746572206e616d652c2061676520616e64206c6963656e604082015261736560f01b606082015260800190565b6020808252601e908201527f43616e6e6f742063616e63656c20636f6e6669726d65642072656e74616c0000604082015260600190565b6020808252601690820152754163636f756e7420616c72656164792065786973747360501b604082015260600190565b6020808252600b908201526a496e76616c69642061676560a81b604082015260600190565b60208082526024908201527f506c6561736520636f6e6669726d2f63616e63656c206578697374696e67206f604082015263393232b960e11b606082015260800190565b600060208252825115156020830152602083015160a06040840152611c2f60c0840182611784565b905060408401516060840152606084015160808401526080840151601f198483030160a0850152611c608282611784565b95945050505050565b600060208252825160a06020840152611c8560c0840182611784565b90506020840151601f19848303016040850152611ca28282611784565b9150506040840151606084015260018060a01b0360608501511660808401526080840151151560a08401528091505092915050565b90815260200190565b60009081526020902090565b60005b83811015611d07578181015183820152602001611cef565b83811115611d16576000848401525b50505050565b600281046001821680611d3057607f821691505b60208210811415611d5157634e487b7160e01b600052602260045260246000fd5b50919050565b6000600019821415611d7757634e487b7160e01b81526011600452602481fd5b5060010190565b634e487b7160e01b600052604160045260246000fd5b6001600160a01b0381168114611da957600080fd5b5056fea264697066735822122031b786ad78773b649a50fb794fc1e8b582fa461ac2ac08f669ab18a23212918e64736f6c63430008000033",
+  "deployedBytecode": "0x6080604052600436106101365760003560e01c806364ea9ef3116100b157806364ea9ef3146102865780636ba85eb41461029b5780636bdd7e9a146102ce5780636f2b2c70146102ee5780638f1395e514610303578063a035b1fe14610323578063a4b4e42b14610338578063ba0235db14610358578063cc51f9b914610378578063de320add14610398578063e7411f83146103ad578063f183d377146103cd578063f7746e36146103e257610136565b8063075569a31461013b5780630bccc291146101665780631436d16e1461017d57806317f956e0146101aa5780631af6c8cc146101ca57806321b3e898146101df57806327e235e3146101f25780632f5edecd1461021257806330ff2ed4146102345780633a15add0146102545780634fb0a98c1461026957806364d3d1361461027e575b600080fd5b34801561014757600080fd5b50610150610413565b60405161015d9190611cd7565b60405180910390f35b34801561017257600080fd5b5061017b610423565b005b34801561018957600080fd5b5061019d610198366004611606565b6104e7565b60405161015d919061186d565b3480156101b657600080fd5b5061017b6101c536600461176c565b6106a1565b3480156101d657600080fd5b5061019d61079b565b61017b6101ed36600461171b565b6107be565b3480156101fe57600080fd5b5061015061020d3660046115e3565b610b0f565b34801561021e57600080fd5b50610227610b21565b60405161015d9190611906565b34801561024057600080fd5b5061015061024f36600461176c565b610bce565b34801561026057600080fd5b5061019d610be3565b34801561027557600080fd5b5061019d610c0b565b61017b610c2a565b34801561029257600080fd5b50610150610d6a565b3480156102a757600080fd5b506102bb6102b63660046115e3565b610d70565b60405161015d97969594939291906118bd565b3480156102da57600080fd5b5061019d6102e93660046116c5565b610e3e565b3480156102fa57600080fd5b50610150610f50565b34801561030f57600080fd5b5061019d61031e36600461176c565b610f6c565b34801561032f57600080fd5b50610150610f81565b34801561034457600080fd5b5061019d610353366004611678565b610f8d565b34801561036457600080fd5b5061022761037336600461176c565b6111f2565b34801561038457600080fd5b5061017b6103933660046115e3565b611297565b3480156103a457600080fd5b506101506112be565b3480156103b957600080fd5b506102276103c836600461176c565b6112dd565b3480156103d957600080fd5b506101506112fd565b3480156103ee57600080fd5b506104026103fd36600461176c565b61131c565b60405161015d959493929190611878565b6001546001600160a01b03163190565b600080546001600160a01b031681526005602052604090205460ff1615156001146104695760405162461bcd60e51b815260040161046090611bc3565b60405180910390fd5b600080546001600160a01b039081168252600560208190526040808420909101805461ff00191661010017905582549091168252908190206002810154600382015492517fed78816087eca6df0f765f0aca46ab87a736468a8764ef88ed0b41c4adaff949936104dd936001019291611919565b60405180910390a1565b60006001600160a01b03841661050f5760405162461bcd60e51b815260040161046090611997565b6001600160a01b038416600090815260076020526040902060020154156105485760405162461bcd60e51b815260040161046090611b6e565b60008351116105695760405162461bcd60e51b8152600401610460906119c9565b600082511161058a5760405162461bcd60e51b8152600401610460906119f6565b61059261145f565b600380549060006105a283611d57565b90915550506003546040808301919091526001600160a01b038616606083018190528583526020808401869052600060808501819052918252600781529190208251805184936105f6928492910190611499565b50602082810151805161060f9260018501920190611499565b5060408281015160028301556060830151600390920180546080909401511515600160a01b0260ff60a01b196001600160a01b039094166001600160a01b03199095169490941792909216929092179055517f2c988b5a7cf9ffacc161786f216866af35142b37c1dc5484c1b961f166e2b8829061068e908390611c69565b60405180910390a1506001949350505050565b600080546001600160a01b031681526005602052604090205460ff1615156001146106de5760405162461bcd60e51b815260040161046090611bc3565b600080546001600160a01b0390811682526005602081815260408085208301805461ff0019169055845484168552808520805460ff199081169091558554851686528186208401805482166001908117909155878752600684528287208054909216811790915585549094168552919052918290206002810154600382015493517ff11af35f6391ead7879040e53c10181c087a76737f0f8a4947097027f540b8bb9461079094939093019290611919565b60405180910390a150565b600080546001600160a01b03168152600560208190526040909120015460ff1690565b600080546001600160a01b031681526005602052604090205460ff16156107f75760405162461bcd60e51b815260040161046090611a82565b67016345785d8a000034101561081f5760405162461bcd60e51b81526004016104609061196d565b838383600083511180156108335750600082115b801561083f5750600081115b61085b5760405162461bcd60e51b815260040161046090611af5565b601282101561087c5760405162461bcd60e51b815260040161046090611b9e565b6000848152600660209081526040808320815160a08101909252805460ff161515825260018101805492939192918401916108b690611d1c565b80601f01602080910402602001604051908101604052809291908181526020018280546108e290611d1c565b801561092f5780601f106109045761010080835404028352916020019161092f565b820191906000526020600020905b81548152906001019060200180831161091257829003601f168201915b50505050508152602001600282015481526020016003820154815260200160048201805461095c90611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461098890611d1c565b80156109d55780601f106109aa576101008083540402835291602001916109d5565b820191906000526020600020905b8154815290600101906020018083116109b857829003601f168201915b5050509190925250508151919250501515600114610a055760405162461bcd60e51b815260040161046090611a27565b600080546001600160a01b039081168252600560209081526040808420805460ff19166001908117909155845490931684529092208a51610a4e939190920191908b0190611499565b50600080546001600160a01b03908116825260056020818152604080852060029081018d905585548516865281862060039081018d90558654861687528287208501805461ff00191690558654861687528287208501805460ff19169055868852865490951686529290915292839020908101549181015492517f25927a58d730df3be0b68622ecf036a86a34b53d452a9f851bc6b69165c468a293610afd9360019390930192918a9061193e565b60405180910390a15050505050505050565b60046020526000908152604090205481565b600080546001600160a01b03168152600560205260409020600101805460609190610b4b90611d1c565b80601f0160208091040260200160405190810160405280929190818152602001828054610b7790611d1c565b8015610bc45780601f10610b9957610100808354040283529160200191610bc4565b820191906000526020600020905b815481529060010190602001808311610ba757829003601f168201915b5050505050905090565b60009081526006602052604090206002015490565b600080546001600160a01b031681526005602081905260409091200154610100900460ff1690565b600080546001600160a01b031681526005602052604090205460ff1690565b600080546001600160a01b031681526005602052604090205460ff161515600114610c675760405162461bcd60e51b815260040161046090611bc3565b600080546001600160a01b031681526005602081905260409091200154610100900460ff1615610ca95760405162461bcd60e51b815260040161046090611b37565b600080546001600160a01b039081168252600560208190526040808420909101805461ff0019169055825482168352808320805460ff19169055825490519116919067016345785d8a00009082818181858883f19350505050158015610d13573d6000803e3d6000fd5b50600080546001600160a01b0316815260056020526040908190206002810154600382015492517f558f292960addceeabcd96661a332929684e0344c1c679492d49bb64498c6a84936104dd936001019291611919565b60025481565b6005602052600090815260409020805460018201805460ff9092169291610d9690611d1c565b80601f0160208091040260200160405190810160405280929190818152602001828054610dc290611d1c565b8015610e0f5780601f10610de457610100808354040283529160200191610e0f565b820191906000526020600020905b815481529060010190602001808311610df257829003601f168201915b505050506002830154600384015460048501546005909501549394919390925060ff8082169161010090041687565b6000808351118015610e51575060008251115b610e6d5760405162461bcd60e51b815260040161046090611ab3565b610e7561151d565b60028054906000610e8583611d57565b90915550506080810184905260208082018481526002546040808501829052600180865260009283526006855291208451815460ff1916901515178155915180518594610ed6938501920190611499565b50604082015160028201556060820151600382015560808201518051610f06916004840191602090910190611499565b509050506002547f902d5a109e988730eb8999e5c34dcb60d536e0a7d52d16335bcd3c5648f1d2ca82604051610f3c9190611c07565b60405180910390a260019150505b92915050565b600080546001600160a01b031681526004602052604090205490565b60009081526006602052604090205460ff1690565b67016345785d8a000081565b6001600160a01b038216600090815260076020526040808220815160a0810190925280548392919082908290610fc290611d1c565b80601f0160208091040260200160405190810160405280929190818152602001828054610fee90611d1c565b801561103b5780601f106110105761010080835404028352916020019161103b565b820191906000526020600020905b81548152906001019060200180831161101e57829003601f168201915b5050505050815260200160018201805461105490611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461108090611d1c565b80156110cd5780601f106110a2576101008083540402835291602001916110cd565b820191906000526020600020905b8154815290600101906020018083116110b057829003601f168201915b505050918352505060028201546020808301919091526003909201546001600160a01b038116604080840191909152600160a01b90910460ff1615156060909201919091525191925061112291859101611851565b60405160208183030381529060405280519060200120816020015160405160200161114d9190611851565b6040516020818303038152906040528051906020012014156111b357600160808201526040517fbdd5bb70264ff2c0cb7e174074895e522aa9d53f919fb486c17c158142a96e09906111a0908390611c69565b60405180910390a1608001519050610f4a565b7f4c74530a3ef466183b718601f9ad1f7a0c8ec56463a9e68efef55c81e7e4141f6040516111e090611a56565b60405180910390a16000915050610f4a565b600081815260066020526040902060010180546060919061121290611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461123e90611d1c565b801561128b5780601f106112605761010080835404028352916020019161128b565b820191906000526020600020905b81548152906001019060200180831161126e57829003601f168201915b50505050509050919050565b6001600160a01b03166000908152600760205260409020600301805460ff60a01b19169055565b600080546001600160a01b031681526005602052604090206002015490565b600081815260066020526040902060040180546060919061121290611d1c565b600080546001600160a01b031681526005602052604090206003015490565b6006602052600090815260409020805460018201805460ff909216929161134290611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461136e90611d1c565b80156113bb5780601f10611390576101008083540402835291602001916113bb565b820191906000526020600020905b81548152906001019060200180831161139e57829003601f168201915b5050505050908060020154908060030154908060040180546113dc90611d1c565b80601f016020809104026020016040519081016040528092919081815260200182805461140890611d1c565b80156114555780601f1061142a57610100808354040283529160200191611455565b820191906000526020600020905b81548152906001019060200180831161143857829003601f168201915b5050505050905085565b6040518060a0016040528060608152602001606081526020016000815260200160006001600160a01b031681526020016000151581525090565b8280546114a590611d1c565b90600052602060002090601f0160209004810192826114c7576000855561150d565b82601f106114e057805160ff191683800117855561150d565b8280016001018555821561150d579182015b8281111561150d5782518255916020019190600101906114f2565b5061151992915061154e565b5090565b6040518060a00160405280600015158152602001606081526020016000815260200160008152602001606081525090565b5b80821115611519576000815560010161154f565b600082601f830112611573578081fd5b81356001600160401b038082111561158d5761158d611d7e565b604051601f8301601f1916810160200182811182821017156115b1576115b1611d7e565b6040528281528483016020018610156115c8578384fd5b82602086016020830137918201602001929092529392505050565b6000602082840312156115f4578081fd5b81356115ff81611d94565b9392505050565b60008060006060848603121561161a578182fd5b833561162581611d94565b925060208401356001600160401b0380821115611640578384fd5b61164c87838801611563565b93506040860135915080821115611661578283fd5b5061166e86828701611563565b9150509250925092565b6000806040838503121561168a578182fd5b823561169581611d94565b915060208301356001600160401b038111156116af578182fd5b6116bb85828601611563565b9150509250929050565b600080604083850312156116d7578182fd5b82356001600160401b03808211156116ed578384fd5b6116f986838701611563565b9350602085013591508082111561170e578283fd5b506116bb85828601611563565b60008060008060808587031215611730578081fd5b84356001600160401b03811115611745578182fd5b61175187828801611563565b97602087013597506040870135966060013595509350505050565b60006020828403121561177d578081fd5b5035919050565b6000815180845261179c816020860160208601611cec565b601f01601f19169290920160200192915050565b8054600090600281046001808316806117ca57607f831692505b60208084108214156117ea57634e487b7160e01b86526022600452602486fd5b6117f48489611cd7565b828015611808576001811461181957611844565b60ff19871682528282019750611844565b61182289611ce0565b60005b8781101561183e57815484820152908601908401611825565b83019850505b5050505050505092915050565b60008251611863818460208701611cec565b9190910192915050565b901515815260200190565b6000861515825260a0602083015261189360a0830187611784565b85604084015284606084015282810360808401526118b18185611784565b98975050505050505050565b6000881515825260e060208301526118d860e0830189611784565b60408301979097525060608101949094526080840192909252151560a0830152151560c09091015292915050565b6000602082526115ff6020830184611784565b60006060825261192c60608301866117b0565b60208301949094525060400152919050565b60006080825261195160808301876117b0565b6020830195909552506040810192909252606090910152919050565b60208082526010908201526f4e6f20656e6f7567682045746865727360801b604082015260600190565b6020808252601890820152774163636f756e742063616e206e6f7420626520656d70747960401b604082015260600190565b602080825260139082015272506c6561736520656e7465722061206e616d6560681b604082015260600190565b602080825260179082015276141b19585cd948195b9d195c8818481c185cdcdddbdc99604a1b604082015260600190565b60208082526015908201527421b0b91034b9903737ba1030bb30b4b630b136329760591b604082015260600190565b602080825260129082015271125b98dbdc9c9958dd0814185cdcdddbdc9960721b604082015260600190565b602080825260179082015276141b19585cd9481cdd185c9d081b995dc81c995b9d185b604a1b604082015260600190565b60208082526022908201527f506c6561736520656e746572206e616d6520616e6420636172206c6f6361746960408201526137b760f11b606082015260800190565b60208082526022908201527f506c6561736520656e746572206e616d652c2061676520616e64206c6963656e604082015261736560f01b606082015260800190565b6020808252601e908201527f43616e6e6f742063616e63656c20636f6e6669726d65642072656e74616c0000604082015260600190565b6020808252601690820152754163636f756e7420616c72656164792065786973747360501b604082015260600190565b6020808252600b908201526a496e76616c69642061676560a81b604082015260600190565b60208082526024908201527f506c6561736520636f6e6669726d2f63616e63656c206578697374696e67206f604082015263393232b960e11b606082015260800190565b600060208252825115156020830152602083015160a06040840152611c2f60c0840182611784565b905060408401516060840152606084015160808401526080840151601f198483030160a0850152611c608282611784565b95945050505050565b600060208252825160a06020840152611c8560c0840182611784565b90506020840151601f19848303016040850152611ca28282611784565b9150506040840151606084015260018060a01b0360608501511660808401526080840151151560a08401528091505092915050565b90815260200190565b60009081526020902090565b60005b83811015611d07578181015183820152602001611cef565b83811115611d16576000848401525b50505050565b600281046001821680611d3057607f821691505b60208210811415611d5157634e487b7160e01b600052602260045260246000fd5b50919050565b6000600019821415611d7757634e487b7160e01b81526011600452602481fd5b5060010190565b634e487b7160e01b600052604160045260246000fd5b6001600160a01b0381168114611da957600080fd5b5056fea264697066735822122031b786ad78773b649a50fb794fc1e8b582fa461ac2ac08f669ab18a23212918e64736f6c63430008000033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 3,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "rentalOwner",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_address_payable"
+      },
+      {
+        "astId": 5,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "carOwner",
+        "offset": 0,
+        "slot": "1",
+        "type": "t_address_payable"
+      },
+      {
+        "astId": 11,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "totalCarNum",
+        "offset": 0,
+        "slot": "2",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 14,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "totalUserNumber",
+        "offset": 0,
+        "slot": "3",
+        "type": "t_uint256"
+      },
+      {
+        "astId": 18,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "balances",
+        "offset": 0,
+        "slot": "4",
+        "type": "t_mapping(t_address,t_uint256)"
+      },
+      {
+        "astId": 60,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "rentals",
+        "offset": 0,
+        "slot": "5",
+        "type": "t_mapping(t_address,t_struct(CustomerInfo)33_storage)"
+      },
+      {
+        "astId": 65,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "cars",
+        "offset": 0,
+        "slot": "6",
+        "type": "t_mapping(t_uint256,t_struct(CarInfo)44_storage)"
+      },
+      {
+        "astId": 70,
+        "contract": "contracts/CarRental.sol:CarRental",
+        "label": "users",
+        "offset": 0,
+        "slot": "7",
+        "type": "t_mapping(t_address,t_struct(User)55_storage)"
+      }
+    ],
+    "types": {
+      "t_address": {
+        "encoding": "inplace",
+        "label": "address",
+        "numberOfBytes": "20"
+      },
+      "t_address_payable": {
+        "encoding": "inplace",
+        "label": "address payable",
+        "numberOfBytes": "20"
+      },
+      "t_bool": {
+        "encoding": "inplace",
+        "label": "bool",
+        "numberOfBytes": "1"
+      },
+      "t_mapping(t_address,t_struct(CustomerInfo)33_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct CarRental.CustomerInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CustomerInfo)33_storage"
+      },
+      "t_mapping(t_address,t_struct(User)55_storage)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => struct CarRental.User)",
+        "numberOfBytes": "32",
+        "value": "t_struct(User)55_storage"
+      },
+      "t_mapping(t_address,t_uint256)": {
+        "encoding": "mapping",
+        "key": "t_address",
+        "label": "mapping(address => uint256)",
+        "numberOfBytes": "32",
+        "value": "t_uint256"
+      },
+      "t_mapping(t_uint256,t_struct(CarInfo)44_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct CarRental.CarInfo)",
+        "numberOfBytes": "32",
+        "value": "t_struct(CarInfo)44_storage"
+      },
+      "t_string_storage": {
+        "encoding": "bytes",
+        "label": "string",
+        "numberOfBytes": "32"
+      },
+      "t_struct(CarInfo)44_storage": {
+        "encoding": "inplace",
+        "label": "struct CarRental.CarInfo",
+        "members": [
+          {
+            "astId": 35,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "isAvailable",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool"
+          },
+          {
+            "astId": 37,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "carLocation",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 39,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "carID",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 41,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "price",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 43,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "ownerName",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_string_storage"
+          }
+        ],
+        "numberOfBytes": "160"
+      },
+      "t_struct(CustomerInfo)33_storage": {
+        "encoding": "inplace",
+        "label": "struct CarRental.CustomerInfo",
+        "members": [
+          {
+            "astId": 20,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "isValidRental",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool"
+          },
+          {
+            "astId": 22,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "customerName",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 24,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "customerAge",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 26,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "licenseID",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 28,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "rentDuration",
+            "offset": 0,
+            "slot": "4",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 30,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "hasReturned",
+            "offset": 0,
+            "slot": "5",
+            "type": "t_bool"
+          },
+          {
+            "astId": 32,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "hasConfirmed",
+            "offset": 1,
+            "slot": "5",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "192"
+      },
+      "t_struct(User)55_storage": {
+        "encoding": "inplace",
+        "label": "struct CarRental.User",
+        "members": [
+          {
+            "astId": 46,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "userName",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 48,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "password",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_string_storage"
+          },
+          {
+            "astId": 50,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "userID",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 52,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "userAddress",
+            "offset": 0,
+            "slot": "3",
+            "type": "t_address_payable"
+          },
+          {
+            "astId": 54,
+            "contract": "contracts/CarRental.sol:CarRental",
+            "label": "isUserLoggedIn",
+            "offset": 20,
+            "slot": "3",
+            "type": "t_bool"
+          }
+        ],
+        "numberOfBytes": "128"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      }
+    }
+  }
+}
